@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>认识自动生成的代码</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(4);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=在CM中编写游戏/开始写代码.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<P><FONT face=微软雅黑><EM>创建好了游戏工程之后就能看到窗口中间的代码框里已经有一些代码，此时可以通过按下F5或点击工具栏上的<IMG 
+alt="" src="../图片/运行按钮.gif">来启动游戏，然后你就可以看到一个蓝色的窗口蹦了出来，这就是没有写任何代码的游戏，然并卵是不是？</EM></FONT></P>
+<P><FONT face=微软雅黑>那么我们先理解一下CM生成的代码：</FONT></P>
+<P><FONT face=微软雅黑><FONT size=3>在初始化屏幕下有这么一句代码：</FONT>  
+</FONT><FONT face=微软雅黑><BR><FONT size=2>引擎 <FONT color=#0000ff>=</FONT> C_引擎.创建<FONT color=#0000ff>(</FONT><FONT color=#800000>"Cmgame Maker"</FONT><FONT color=#0000ff>,</FONT><FONT color=#ff0000>60</FONT><FONT color=#0000ff>,</FONT><FONT color=#ff0000>800</FONT><FONT color=#0000ff>,</FONT><FONT color=#ff0000>600</FONT><FONT color=#0000ff>,true,true)</FONT></FONT> <BR><FONT size=3>这句代码有什么卵用呢ლ(╹◡╹ლ )？<BR>当你删掉这句代后再运行，会发现并没有创建出那个蓝色的窗口就直接运行完毕了。<BR>没错<FONT face=Arial>(ง •̀_•́)ง<FONT face=微软雅黑>这就是创建这个窗口的指令，但创建出来的这个引擎还有其他作用，之后会再详谈。</FONT></FONT></FONT> 
+<BR>  
+</FONT><FONT face=微软雅黑><FONT size=1>这里给不熟悉Lua的新人讲一个<S>没卵用</S>小知识：如果需要暂时让某一段代码失效，可以在代码前面加两个减号，也就是--，例如上面的代码加了之后就变成了<FONT color=#008000>--引擎 = C_引擎.创建("Cmgame Maker",60,800,600,true,true)<FONT color=#000000>，变成了绿色，运行时就会跳过这句代码了(详见Lua中的注释)<BR></FONT></FONT></FONT></FONT><FONT face=微软雅黑>这句代码中的C_引擎是由核心支持库提供的数据类型，支持库可以在CM的左侧看到：<IMG alt="" 
+src="../图片/支持库.gif"></FONT></P><FONT face=微软雅黑>
+<HR></FONT>
+<P><FONT face=微软雅黑>然后在引擎创建下面能看到几个function，大概是这样的：<BR></FONT><FONT size=2 face=微软雅黑><FONT color=#0000ff>function</FONT> 屏幕逻辑 <FONT color=#0000ff>() <FONT color=#008000>--在接收到鼠标、键盘的输入的时候就会调用这个函数，用来处理输入、点击、按键等</FONT></FONT><BR></FONT><FONT size=2 face=微软雅黑><FONT color=#0000ff>end</FONT><BR></FONT><FONT face=微软雅黑><BR><FONT size=2><FONT color=#0000ff>function</FONT> 屏幕渲染 <FONT color=#0000ff>() <FONT color=#008000>--每一帧的渲染都会调用，显示、绘画的代码只有在这下面使用才有效<BR></FONT></FONT></FONT></FONT><FONT face=微软雅黑><FONT size=2>&nbsp;清屏<FONT color=#0000ff>(</FONT>ARGB<FONT color=#0000ff>(</FONT><FONT color=#ff0000>255</FONT><FONT color=#0000ff>,</FONT><FONT color=#ff0000>64</FONT><FONT color=#0000ff>,</FONT><FONT color=#ff0000>128</FONT><FONT color=#0000ff>,</FONT><FONT color=#ff0000>192</FONT><FONT color=#0000ff>))</FONT><BR></FONT></FONT><FONT size=2 face=微软雅黑><FONT color=#0000ff>end</FONT><BR></FONT><FONT face=微软雅黑><BR><FONT size=2><FONT color=#0000ff>function</FONT> 屏幕关闭<FONT color=#0000ff>() <FONT color=#008000>--当关闭游戏的时候就会调用</FONT><BR></FONT></FONT></FONT><FONT size=2 face=微软雅黑><FONT color=#0000ff>end</FONT><BR></FONT><FONT face=微软雅黑><BR><FONT size=2><FONT color=#0000ff>function</FONT> 屏幕获得焦点<FONT color=#0000ff>()<FONT color=#008000>--当从其他窗口切换到游戏窗口的时候就会调用</FONT><BR></FONT></FONT></FONT><FONT size=2 face=微软雅黑><FONT color=#0000ff>end</FONT><BR></FONT><FONT face=微软雅黑><BR><FONT size=2><FONT color=#0000ff>function</FONT> 屏幕失去焦点<FONT color=#0000ff>()</FONT> <FONT color=#008000>--当从游戏窗口切换到其他窗口的时候就会调用</FONT> <BR></FONT></FONT><FONT color=#0000ff size=2 face=微软雅黑>end</FONT></P>
+<P><FONT size=3 face=微软雅黑>这些是什么呢( ◔ ڼ 
+◔ 
+)？在特定情况下CM就会调用这些函数，只需把代码写在从function那一行到end之间就会被调用<BR>这些情况已经在上面代码里标注了。</FONT></P>
+<P><FONT size=3 face=微软雅黑>
+<HR>
+</FONT>
+<P></P>
+<P><FONT size=3 face=微软雅黑>上面的代码里可以看到有一句：</FONT><BR><FONT size=2><FONT face=微软雅黑>清屏<FONT color=#0000ff>(</FONT>ARGB<FONT color=#0000ff>(</FONT><FONT color=#ff0000>255</FONT><FONT color=#0000ff>,</FONT><FONT color=#ff0000>64</FONT><FONT color=#0000ff>,</FONT><FONT color=#ff0000>128</FONT><FONT color=#0000ff>,</FONT><FONT color=#ff0000>192</FONT><FONT color=#0000ff>))<BR><FONT color=#000000 size=3>这又有什么卵用呢ლ(╹◡╹ლ 
+)？卵用大着呢。<BR>顾名思义，就是用来清屏用的，会清除已经画出来的东西，因为上一帧绘画的内容会一直存在，所以必须用这个指令清掉。<BR>如果不清掉的话，静止的东西也许不会发生什么，但动的东西就会有长长的残影~<BR>所以建议在最上面保持有一句清屏为好</FONT></FONT></FONT></FONT><FONT size=2><FONT face=微软雅黑><FONT color=#0000ff><FONT color=#000000 size=3><BR>当然如果你能保证你什么时候都能让全屏都画满东西（比如弄张背景图）的话，也可以去掉清屏。</P>
+<HR>
+
+<P><FONT size=2>清屏的使用方法是：清屏([数值型]颜色)</FONT><BR>那么问题来了(￣△￣；) 
+：上面那句清屏中的ARGB是什么鬼？</P>
+
+<P>ARGB是四个词的简写，分别是Alpha(阿尔法通道)、Red(红色通道)、Green(绿色通道)、Blue(蓝色通道)<BR>阿尔法通道决定透明度，其他三个分别决定对应的颜色的含量</P>
+
+<P></FONT></FONT></FONT></FONT><FONT size=2><FONT face=微软雅黑><FONT color=#0000ff><FONT color=#000000 size=3><FONT size=2>ARGB的用法是：ARGB([数值型]Alpha,[数值型]红,[数值型]绿,[数值型]蓝)</FONT></FONT></FONT></FONT></FONT></P>
+
+<P><FONT face=微软雅黑><FONT color=#0000ff><FONT color=#000000 size=2>提供的四个参数的值均为0到255之间的数字，代表含量。<BR>Alpha值越接近0越透明，越接近255越不透明，255为完全不透明。<BR>其他三个值越接近0越暗，越接近255越亮。</FONT></FONT></FONT><FONT face=微软雅黑><FONT color=#0000ff><FONT color=#000000 ><BR></P></FONT></FONT></FONT></FONT><FONT face=微软雅黑><FONT color=#0000ff><FONT color=#000000 size=2><STRONG>附：从CM自动生成的代码的清屏颜色（ARGB(255,64,128,192)）到完全透明</STRONG><STRONG>（ARGB(0,64,128,192)）的示意图：<BR><IMG 
+style="HEIGHT: 24px; WIDTH: 256px" alt="" src="../图片/图片.png" width=256 
+height=1></STRONG></FONT></FONT></FONT></body>
+</html>

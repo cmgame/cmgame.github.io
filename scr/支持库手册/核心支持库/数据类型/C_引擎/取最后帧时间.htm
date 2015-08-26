@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>取最后帧时间</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(22);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../../../../index.htm?page=支持库手册/核心支持库/数据类型/C_引擎/取最后帧时间.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<P><FONT size=2 face=宋体>所属类库: 核心支持库 &gt; 数据类型 - C_引擎 - 取最后帧时间<BR>调用格式: 
+对象:取最后帧时间()<BR>函数返回: [数值型]帧时间<BR>备注说明: 返回最后帧更新时间.结果通常为1/帧率.</FONT></P>
+<P><FONT face=微软雅黑>返回的是最后一帧的渲染耗时（？），如果这个数字大于1/帧率的话，就说明掉帧了。<BR>当然这个不是最好的检测掉帧的方法，可以使用“取FPS”更直接的获取到帧率进行比对。</FONT></P>
+<P><FONT face=微软雅黑><STRONG>注意：CM例程中常常将此作为时间的依据，这是我个人不推荐的，因为如果这么做的话，卡顿的时候动作速度会变慢，如果用在跳跃中还会导致跳跃高度或距离缩小（因为这么做的话距离与会帧率相关），这些问题在网游中是致命的，在单机游戏中也不容小视，而如果直接锁定速度为1/帧率还是解决不了卡顿时的速度问题（因为无法跳帧）。</STRONG></FONT></P><FONT face=微软雅黑><FONT size=2><FONT color=#ff0000><FONT color=#000000><FONT color=#000000>
+
+<P>下一版的教程会介绍一个比较好的解决方案【天国の下一版TAT</P></FONT></FONT></FONT></FONT></FONT></body>
+</html>

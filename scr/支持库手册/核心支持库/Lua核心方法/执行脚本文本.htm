@@ -1,0 +1,47 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>执行脚本文本</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(26);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../../../index.htm?page=支持库手册/核心支持库/Lua核心方法/执行脚本文本.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<P><FONT size=2 face=宋体>所属类库: 核心支持库 &gt; Lua核心方法 - 执行脚本文本<BR>调用格式: 
+执行脚本文本([文本型]欲执行代码)<BR>函数返回: [无]<BR>备注说明: 执行lua脚本文本</FONT></P>
+<P><FONT face=微软雅黑>执行提供的lua代码，因为需要在执行过程中编译这部分代码所以可能会降低效率。</FONT></P>
+<P><FONT face=微软雅黑>等同于loadstring，可以用loadstring([文本型]欲执行代码)()来实现相同效果。<BR>注意！上面的代码最后还有一对括号，这对括号的意义是执行loadstring的返回值，因为<STRONG>loadstring返回的是一个function</STRONG>，再加上一个括号就代表执行这个function。所以可以利用这个特性将loadstring返回的function保存到变量中，在需要的时候执行。</FONT></P></body>
+</html>
